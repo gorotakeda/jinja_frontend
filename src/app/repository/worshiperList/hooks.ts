@@ -7,5 +7,6 @@ export const useWorshiperList = () => {
         queryFn: async () => {
             return getWorshiperList();
         },
+        retry: false,
     });
 };
