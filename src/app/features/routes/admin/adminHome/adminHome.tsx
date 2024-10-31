@@ -6,8 +6,6 @@ import { useWorshiperList } from '@/app/repository/worshiperList/hooks';
 export const AdminHome = () => {
   const { data: worshiperList, isLoading } = useWorshiperList();
 
-  console.log(worshiperList);
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
