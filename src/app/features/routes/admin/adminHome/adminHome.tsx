@@ -62,8 +62,7 @@ export const AdminHome = () => {
                   <td className="px-6 py-4 whitespace-nowrap">{worshiper.email}</td>
                   <td className="px-6 py-4 whitespace-normal">
                     〒{worshiper.post_code}<br />
-                    {worshiper.prefecture}{worshiper.city}{worshiper.street_address_1}
-                    {worshiper.street_address_2 && <><br />{worshiper.street_address_2}</>}
+                    {worshiper.prefecture}{worshiper.city}{worshiper.street_address}
                     {worshiper.building_name && <><br />{worshiper.building_name}</>}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

@@ -12,8 +12,7 @@ export type Worshiper = {
     post_code?: string;
     prefecture?: string;
     city?: string;
-    street_address_1?: string;
-    street_address_2?: string;
+    street_address?: string;
     building_name?: string;
     note?: string;
     is_active: boolean;
