@@ -1,5 +1,15 @@
-import { AdminHome } from './features/routes/admin/adminHome/adminHome';
+'use client'
+
+import { AdminLogin } from './features/routes/admin/adminLogin/adminLogin'
+import { useAuthRedirect } from './repository/authLogin/hooks'
+import { LoadingSpinner } from './features/common/loading/loading'
 
 export default function Home() {
-  return <AdminHome />;
+  const { isAuthenticated } = useAuthRedirect()
+
+  if (isAuthenticated) {
+    return <LoadingSpinner />
+  }
+
+  return <AdminLogin />
 }

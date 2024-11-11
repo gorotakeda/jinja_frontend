@@ -5,7 +5,7 @@ import { Pagination } from '@/app/features/common/pagination/pagination';
 import { useWorshiperList } from '@/app/repository/worshiperList/hooks';
 import { useState } from 'react';
 
-export const AdminHome = () => {
+export const WorshiperList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const { data: worshiperList, isLoading } = useWorshiperList();
