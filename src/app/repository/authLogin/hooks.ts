@@ -26,3 +26,16 @@ export const useAuth = () => {
 
   return { isAuthenticated, logout }
 }
+
+export const useAuthRedirect = () => {
+  const [isAuthenticated] = useAtom(isAuthenticatedAtom)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/admin/worshiperList')
+    }
+  }, [isAuthenticated, router])
+
+  return { isAuthenticated }
+}
