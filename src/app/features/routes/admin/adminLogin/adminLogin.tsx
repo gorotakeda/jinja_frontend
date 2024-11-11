@@ -3,8 +3,11 @@
 import { login } from '@/app/repository/authLogin/endpoint';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAtom } from 'jotai';
+import { isAuthenticatedAtom } from '@/app/repository/authLogin/hooks';
 
 export const AdminLogin = () => {
+  const [, setIsAuthenticated] = useAtom(isAuthenticatedAtom);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,6 +19,7 @@ export const AdminLogin = () => {
       const response = await login({ username, password });
       localStorage.setItem('accessToken', response.access);
       localStorage.setItem('refreshToken', response.refresh);
+      setIsAuthenticated(true);
       router.push('/admin/worshiperList');
     } catch (err) {
       console.error(err);

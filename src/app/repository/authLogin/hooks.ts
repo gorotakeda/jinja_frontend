@@ -1,18 +1,28 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { atom, useAtom } from 'jotai'
+
+// atomを定義
+export const isAuthenticatedAtom = atom<boolean>(false)
 
 export const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useAtom(isAuthenticatedAtom)
+  const router = useRouter()
+  const logout = () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('refreshToken')
+    setIsAuthenticated(false);
+    router.push('/');
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setIsAuthenticated(!!token);
+    const token = localStorage.getItem('accessToken')
+    setIsAuthenticated(!!token)
 
     if (!token) {
-      router.push('/admin/login');
+      router.push('/')
     }
-  }, [router]);
+  }, [router, setIsAuthenticated])
 
-  return { isAuthenticated };
-};
+  return { isAuthenticated, logout }
+}
