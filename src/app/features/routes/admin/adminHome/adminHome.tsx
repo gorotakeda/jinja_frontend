@@ -38,7 +38,6 @@ export const AdminHome = () => {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">生年月日</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">電話番号</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">メール</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">住所</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">参拝日</th>
               </tr>
             </thead>
@@ -60,11 +59,6 @@ export const AdminHome = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">{worshiper.phone_number}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{worshiper.email}</td>
-                  <td className="px-6 py-4 whitespace-normal">
-                    〒{worshiper.post_code}<br />
-                    {worshiper.prefecture}{worshiper.city}{worshiper.street_address}
-                    {worshiper.building_name && <><br />{worshiper.building_name}</>}
-                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {worshiper.visited_day ? new Date(worshiper.visited_day).toLocaleDateString('ja-JP') : ''}
                   </td>
