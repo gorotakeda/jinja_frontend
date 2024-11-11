@@ -1,0 +1,21 @@
+export type Worshiper = {
+    id: number;
+    last_name: string;
+    first_name: string;
+    last_name_kana: string;
+    first_name_kana: string;
+    gender: 'male' | 'female';
+    birthday?: Date;
+    phone_number?: string;
+    email?: string;
+    visited_day?: Date;
+    post_code?: string;
+    prefecture?: string;
+    city?: string;
+    street_address?: string;
+    building_name?: string;
+    note?: string;
+    is_active: boolean;
+    created_at: Date;
+    updated_at: Date;
+};
