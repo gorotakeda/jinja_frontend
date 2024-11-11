@@ -1,5 +1,5 @@
-import { AdminHome } from './features/routes/admin/adminHome/adminHome';
+import { AdminLogin } from './features/routes/admin/adminLogin/adminLogin';
 
 export default function Home() {
-  return <AdminHome />;
+  return <AdminLogin />;
 }
