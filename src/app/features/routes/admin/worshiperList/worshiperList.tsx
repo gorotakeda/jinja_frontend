@@ -4,11 +4,13 @@ import { LoadingSpinner } from '@/app/features/common/loading/loading';
 import { Pagination } from '@/app/features/common/pagination/pagination';
 import { useWorshiperList } from '@/app/repository/worshiperList/hooks';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const WorshiperList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const { data: worshiperList, isLoading } = useWorshiperList();
+  const router = useRouter();
 
   const totalPages = Math.ceil((worshiperList?.length || 0) / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -43,7 +45,7 @@ export const WorshiperList = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {currentWorshipers?.map((worshiper) => (
-                <tr key={worshiper.id}>
+                <tr key={worshiper.id} onClick={() => router.push(`/admin/worshiperList/${worshiper.id}`)}>
                   <td className="px-6 py-4 whitespace-nowrap">{worshiper.id}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     {worshiper.last_name} {worshiper.first_name}
