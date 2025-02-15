@@ -2,9 +2,9 @@
 const nextConfig = {
   output: 'standalone',
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@tanstack/react-query']
-  }
+    optimizeCss: false
+  },
+  swcMinify: true
 };
 
 export default nextConfig;

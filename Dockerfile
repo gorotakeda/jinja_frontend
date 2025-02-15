@@ -6,8 +6,10 @@ ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 WORKDIR /app
 
-# 依存関係のインストール
+# package.jsonとpackage-lock.jsonをコピー
 COPY package*.json ./
+
+# 依存関係のインストール
 RUN npm install
 
 # ソースコードのコピー
